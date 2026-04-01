@@ -1,0 +1,15 @@
+---
+description: mockup_ani / mockup_main are read-only reference; not build targets
+alwaysApply: true
+---
+
+# Mockup folders (reference only)
+
+Under the `cos` project root, **`mockup_ani/`** and **`mockup_main/`** are **read-only reference** material for UI, copy, and effects.
+
+## Policy
+
+- **Do not treat them as app roots or build targets.** They are not part of the production Next.js app’s compile/deploy surface unless the project owner explicitly changes that.
+- **Do not import** from `mockup_ani/**` or `mockup_main/**` into `src/` (or other main app code). When reusing patterns, **copy or adapt** code into the real app tree.
+- **Avoid editing** files inside these folders unless the user explicitly asks to update the reference itself.
+- The runnable app is the main **`cos`** Next project (e.g. `src/app/`, `package.json` at `cos/`). Mockups may be separate mini-apps **for local preview only** and remain outside normal build pipelines unless stated otherwise.

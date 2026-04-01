@@ -1,14 +1,13 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Light aurora surface (aligned with mockup_ani index.html / design spec) */
-  --background: oklch(0.995 0.01 95);
-  --foreground: oklch(0.35 0.02 260);
-  --card: oklch(0.96 0.015 280);
-  --card-foreground: oklch(0.28 0.02 260);
+  --background: oklch(0.15 0.01 280);
+  --foreground: oklch(0.2 0.01 60);
+  --card: oklch(0.92 0.01 80);
+  --card-foreground: oklch(0.2 0.01 60);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.35 0.05 280);
@@ -76,9 +75,9 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist), "Geist Fallback", sans-serif;
-  --font-mono: var(--font-geist-mono), "Geist Mono Fallback", monospace;
-  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-geist), 'Geist Fallback', sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback', monospace;
+  --font-serif: var(--font-playfair), 'Playfair Display', Georgia, serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -123,88 +122,10 @@
   }
   html {
     scroll-behavior: smooth;
-    font-size: 22px;
-    background-color: #fffefb;
-  }
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: rgba(140, 170, 210, 0.35);
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(140, 170, 210, 0.55);
-  }
-  ::selection {
-    background-color: rgb(0 255 136 / 0.3);
   }
   body {
-    @apply bg-[#fffefb] text-[#374151] antialiased;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
+    @apply bg-background text-foreground;
   }
 }
 
-/* mockup_ani reference/index.css — mesh, aurora overlays, grain (single source for gradients) */
-.bg-color-of-soul {
-  background-color: #fffefb;
-  background-image:
-    radial-gradient(at 8% 18%, rgba(255, 235, 150, 0.55) 0px, transparent 52%),
-    radial-gradient(at 92% 8%, rgba(255, 190, 215, 0.52) 0px, transparent 52%),
-    radial-gradient(at 48% 48%, rgba(215, 195, 255, 0.4) 0px, transparent 52%),
-    radial-gradient(at 82% 88%, rgba(175, 220, 255, 0.48) 0px, transparent 52%),
-    radial-gradient(at 18% 78%, rgba(255, 205, 175, 0.42) 0px, transparent 52%),
-    radial-gradient(at 62% 32%, rgba(230, 250, 255, 0.65) 0px, transparent 58%);
-  background-attachment: fixed;
-}
-
-.aurora-over-spline {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background:
-    radial-gradient(ellipse 130% 90% at 15% 25%, rgba(255, 250, 230, 0.65) 0%, transparent 58%),
-    radial-gradient(ellipse 110% 85% at 85% 15%, rgba(255, 215, 235, 0.55) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 75% at 50% 85%, rgba(210, 235, 255, 0.55) 0%, transparent 58%),
-    radial-gradient(ellipse 80% 60% at 55% 40%, rgba(240, 220, 255, 0.4) 0%, transparent 55%),
-    linear-gradient(
-      125deg,
-      rgba(255, 255, 255, 0.35) 0%,
-      transparent 38%,
-      rgba(255, 245, 252, 0.2) 62%,
-      rgba(220, 245, 255, 0.22) 100%
-    );
-  mix-blend-mode: soft-light;
-  opacity: 0.92;
-}
-
-.aurora-screen-glow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background: radial-gradient(
-    circle at 50% 45%,
-    rgba(255, 255, 255, 0.28) 0%,
-    rgba(255, 250, 245, 0.08) 45%,
-    transparent 70%
-  );
-  mix-blend-mode: screen;
-  opacity: 0.45;
-}
-
-.bg-color-of-soul-grain {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.14;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: soft-light;
-}
+/* Aurora wave animations are handled via JavaScript requestAnimationFrame */
