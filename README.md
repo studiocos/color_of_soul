@@ -2,6 +2,12 @@
 
 Studio COS — **Color of Soul** 브랜드용 단일 페이지 웹사이트입니다. Next.js App Router로 구성되어 있으며, 메인·소개·서비스·갤러리·예약·연락처 섹션을 카드형 레이아웃으로 제공합니다.
 
+## Pole Star Labs 협업
+
+이 프로젝트는 **Color of Soul** 스튜디오와 **[Pole Star Labs](https://www.polestar-labs.ai/)** 가 함께 기획·디자인·개발한 협업 산출물입니다. 페이지 하단 푸터에 협업 표기가 포함되어 있으며, Pole Star Labs 브랜드 자산(예: 로고) 사용은 협업 범위 내에서 이루어집니다.
+
+- **Pole Star Labs:** [https://www.polestar-labs.ai/](https://www.polestar-labs.ai/)
+
 ## 기술 스택
 
 - **Framework:** [Next.js](https://nextjs.org) 16 (App Router)
@@ -68,7 +74,9 @@ src/
 
 ## 라이선스
 
-본 프로젝트의 소프트웨어 및 관련 산출물에 대한 저작권·라이선스는 **Pole Star Labs** 에게 있습니다. 상세 조항은 저장소 루트의 [LICENSE](LICENSE) 파일을 참고하세요.
+**본 사이트의 제작(기획·디자인·구현을 포함한 웹 산출물 전반)** 과 **본 저장소의 소스 코드 및 그에 따른 라이선스·저작권**은 명시적으로 **Pole Star Labs** 에 귀속됩니다. 이용·재배포·수정 등 법적 권한의 주체는 Pole Star Labs이며, Color of Soul 스튜디오 단독 권한으로 간주되지 않습니다.
+
+상세 조항은 저장소 루트의 [LICENSE](LICENSE) 파일을 반드시 확인하세요.
 
 ## 기타
 

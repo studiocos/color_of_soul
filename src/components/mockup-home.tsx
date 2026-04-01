@@ -7,6 +7,7 @@ import { HeroContent } from "@/components/hero-content"
 import { BookContent } from "@/components/book-content"
 import { ContactContent } from "@/components/contact-content"
 import { ServiceContent } from "@/components/service-content"
+import { CollaborationFooter } from "@/components/collaboration-footer"
 import { SplineBackground } from "@/components/spline-background"
 
 const navItems = [
@@ -116,6 +117,8 @@ export function MockupHome() {
           <ContactContent />
         </div>
       </div>
+
+      <CollaborationFooter />
     </div>
   )
 }
