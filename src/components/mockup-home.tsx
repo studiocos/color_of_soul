@@ -1,6 +1,5 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
 import { AboutContent } from "@/components/about-content"
 import { EnergyGalleryMenu } from "@/components/energy-gallery-menu"
 import { HeroContent } from "@/components/hero-content"
@@ -54,49 +53,7 @@ export function MockupHome() {
         <main
           id="main"
           className="pointer-events-auto relative flex w-full flex-1 flex-col items-center justify-center"
-        >
-          <div className="flex w-full justify-center perspective-[1000px]">
-            <div className="w-full max-w-[580px] transform border border-white/35 bg-white/50 p-6 text-gray-800 shadow-2xl shadow-purple-500/5 backdrop-blur-2xl transition-transform duration-700 hover:scale-[1.02] hover:-rotate-1">
-              <div className="relative mb-8 flex aspect-square w-full items-center justify-center overflow-hidden border border-white/50 bg-gradient-to-br from-sky-100/90 via-violet-50/95 to-pink-100/85">
-                <div className="relative flex h-64 w-64 items-center justify-center border border-white/60 bg-gradient-to-br from-sky-200/70 to-violet-200/65 shadow-lg shadow-sky-200/40">
-                  <svg
-                    width="140"
-                    height="140"
-                    viewBox="0 0 100 100"
-                    className="stroke-sky-600/85 stroke-[0.8] opacity-90"
-                  >
-                    <line x1="50" y1="20" x2="50" y2="80" />
-                    <line x1="20" y1="20" x2="80" y2="20" />
-                    <line x1="50" y1="20" x2="80" y2="50" />
-                  </svg>
-                  <div className="absolute left-4 top-4 h-1.5 w-1.5 rounded-full bg-white opacity-80 shadow-sm" />
-                  <div className="absolute right-4 top-4 h-1.5 w-1.5 rounded-full bg-white opacity-80 shadow-sm" />
-                  <div className="absolute bottom-4 left-4 h-1.5 w-1.5 rounded-full bg-white opacity-80 shadow-sm" />
-                  <div className="absolute bottom-4 right-4 h-1.5 w-1.5 rounded-full bg-white opacity-80 shadow-sm" />
-                </div>
-              </div>
-
-              <div className="space-y-10 px-2 pb-6">
-                <div className="space-y-4">
-                  <div className="font-mono text-xs font-medium uppercase tracking-wider text-gray-400">
-                    Color of Soul / 1.0
-                  </div>
-                  <h2 className="text-2xl font-medium leading-tight tracking-tight text-[#222222]">
-                    Find your color of soul
-                  </h2>
-                </div>
-
-                <div className="flex items-start gap-5 border-t border-gray-200/50 pt-4">
-                  <ArrowRight className="mt-1.5 h-5 w-5 flex-shrink-0 text-gray-400" />
-                  <p className="max-w-[360px] font-mono text-sm leading-relaxed text-gray-600">
-                    보이지 않는 운명의 데이터를 보이는 빛의 언어로 번역합니다. 명리학과 스펙트럼 이론으로 당신만의 파장을
-                    설계합니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </main>
+        />
       </div>
 
       <div className="relative z-10 mx-auto max-w-4xl space-y-8 px-4 pb-12 pt-4 md:px-8">
