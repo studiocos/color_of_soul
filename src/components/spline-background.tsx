@@ -26,19 +26,6 @@ export function SplineBackground() {
 
   return (
     <div className="fixed inset-0 z-0 h-full w-full overflow-hidden bg-color-of-soul">
-      <div
-        className={`absolute inset-0 z-[3] flex items-center justify-center transition-opacity duration-1000 ${
-          isLoaded ? "pointer-events-none opacity-0" : "opacity-100"
-        }`}
-        style={{
-          background: "linear-gradient(to bottom, #fffefb, #faf5ff)",
-        }}
-      >
-        <div className="animate-pulse text-sm font-light uppercase tracking-widest text-sky-500/80">
-          Initializing Environment...
-        </div>
-      </div>
-
       {mountIframe ? (
         <div className="absolute inset-0 z-0 overflow-hidden">
           <iframe

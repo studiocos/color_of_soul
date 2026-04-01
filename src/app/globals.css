@@ -208,3 +208,34 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode: soft-light;
 }
+
+/* Main intro title — text gradient fine-tuned to public/6.png */
+.text-intro-color-of-soul {
+  background-image: linear-gradient(
+    to right,
+    #b8e2c8 0%,
+    #a6d1f5 20%,
+    #d2b9e5 40%,
+    #f2abb6 60%,
+    #f7c5a0 80%,
+    #f9d9a5 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Main hero tagline — matches public/1.png (soft pastel bg, low-contrast copy) */
+.text-hero-main-en {
+  color: #bdbdbd;
+  font-weight: 400;
+  letter-spacing: normal;
+  font-family: var(--font-geist), "Geist Fallback", sans-serif;
+}
+
+.text-hero-main-ko {
+  color: #d4d4d4;
+  font-weight: 300;
+  letter-spacing: normal;
+  font-family: var(--font-geist), "Geist Fallback", sans-serif;
+}
