@@ -15,16 +15,9 @@ import {
   heroNavContainerVariants,
   heroNavItemVariants,
 } from "@/components/hero-transition"
+import { SectionNavMobile } from "@/components/section-nav-mobile"
 import { SplineBackground } from "@/components/spline-background"
-
-const navItems = [
-  { label: "Main", href: "#main" },
-  { label: "About", href: "#about" },
-  { label: "Service", href: "#service" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Book", href: "#book" },
-  { label: "Contact", href: "#contact" },
-]
+import { sectionNavItems } from "@/constants/section-nav"
 
 const sectionCardClassName =
   "relative rounded-sm border border-white/35 bg-white/40 px-4 py-10 shadow-2xl shadow-purple-500/5 backdrop-blur-md md:px-8"
@@ -97,13 +90,13 @@ export function MockupHome() {
       {introDone ? (
         <motion.nav
           aria-label="Section"
-          className="pointer-events-auto fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-6 text-sm font-mono text-gray-500 md:left-8 lg:flex lg:left-12"
+          className="pointer-events-auto fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-6 text-sm font-mono text-gray-500 lg:flex lg:left-12"
           variants={heroNavContainerVariants}
           initial="initial"
           animate="animate"
           aria-hidden={false}
         >
-          {navItems.map((item, index) => (
+          {sectionNavItems.map((item, index) => (
             <motion.a
               key={item.label}
               href={item.href}
@@ -119,35 +112,43 @@ export function MockupHome() {
         </motion.nav>
       ) : null}
 
-      <div className="pointer-events-none relative z-10 flex min-h-screen flex-col p-6 md:p-8 lg:p-12">
-        <main
-          id="main"
-          className="pointer-events-auto relative flex w-full min-h-[min(100dvh,100vh)] flex-1 flex-col items-center justify-center"
-        >
-          <HeroTransition introDone={introDone} />
-        </main>
-      </div>
+      {introDone ? <SectionNavMobile items={sectionNavItems} /> : null}
 
-      <div className="relative z-10 mx-auto max-w-4xl space-y-8 px-4 pb-12 pt-4 md:px-8">
-        <div className={sectionCardClassName}>
-          <HeroContent />
-          <AboutContent />
+      <div
+        className={
+          introDone ? "lg:pl-[var(--nav-rail-width)]" : undefined
+        }
+      >
+        <div className="pointer-events-none relative z-10 flex min-h-screen flex-col p-6 md:p-8 lg:p-12">
+          <main
+            id="main"
+            className="pointer-events-auto relative flex w-full min-h-[min(100dvh,100vh)] flex-1 flex-col items-center justify-center"
+          >
+            <HeroTransition introDone={introDone} />
+          </main>
         </div>
-        <div className={sectionCardClassName}>
-          <ServiceContent />
-        </div>
-        <section id="gallery" className={`scroll-mt-8 ${gallerySectionCardClassName}`}>
-          <EnergyGalleryMenu />
-        </section>
-        <div className={sectionCardClassName}>
-          <BookContent />
-        </div>
-        <div className={sectionCardClassName}>
-          <ContactContent />
-        </div>
-      </div>
 
-      <CollaborationFooter />
+        <div className="relative z-10 mx-auto max-w-4xl space-y-8 px-4 pb-12 pt-4 md:px-8">
+          <div className={sectionCardClassName}>
+            <HeroContent />
+            <AboutContent />
+          </div>
+          <div className={sectionCardClassName}>
+            <ServiceContent />
+          </div>
+          <section id="gallery" className={`scroll-mt-8 ${gallerySectionCardClassName}`}>
+            <EnergyGalleryMenu />
+          </section>
+          <div className={sectionCardClassName}>
+            <BookContent />
+          </div>
+          <div className={sectionCardClassName}>
+            <ContactContent />
+          </div>
+        </div>
+
+        <CollaborationFooter />
+      </div>
     </div>
   )
 }
