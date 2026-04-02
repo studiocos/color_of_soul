@@ -1,5 +1,6 @@
 import Image from "next/image"
 
+/* Pole Star Labs 홈페이지 완성 후: 아래 주석을 해제하고 `PoleStarLabsName`을 `PoleStarLabsLink`로 교체하세요.
 const POLESTAR_LABS_URL = "https://www.polestar-labs.ai/"
 
 function PoleStarLabsLink({ className }: { className?: string }) {
@@ -13,6 +14,11 @@ function PoleStarLabsLink({ className }: { className?: string }) {
       Pole Star Labs
     </a>
   )
+}
+*/
+
+function PoleStarLabsName({ className }: { className?: string }) {
+  return <span className={className}>Pole Star Labs</span>
 }
 
 /** Pole Star Labs 협업 — 1행: X + 로고 + 브랜드 강조, 2행: 본문 톤 통일 */
@@ -35,14 +41,14 @@ export function CollaborationFooter() {
                 height={40}
                 className="h-5 w-auto shrink-0 object-contain md:h-6"
               />
-              <PoleStarLabsLink className="inline font-bold tracking-normal text-black underline-offset-4 transition-opacity hover:opacity-85 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500/50" />
+              <PoleStarLabsName className="inline font-bold tracking-normal text-black" />
             </span>
           </span>
         </p>
 
         <p className="max-w-[min(100%,28rem)] text-center text-xs font-light leading-relaxed tracking-wide text-gray-500/90 md:text-sm">
           Designed & Developed in collaboration with{" "}
-          <PoleStarLabsLink className="font-light tracking-wide text-gray-500/90 underline-offset-4 transition-opacity hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500/50" />
+          <PoleStarLabsName className="font-light tracking-wide text-gray-500/90" />
         </p>
       </div>
     </footer>
