@@ -27,14 +27,16 @@ export function CollaborationFooter() {
           <span className="inline-flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1">
             <span className="tracking-widest">Color of Soul </span>
             <span className="tracking-widest">x</span>
-            <Image
-              src="/pole-star.png"
-              alt=""
-              width={120}
-              height={40}
-              className="h-5 w-auto shrink-0 object-contain md:h-6"
-            />
-            <PoleStarLabsLink className="inline font-bold tracking-normal text-black underline-offset-4 transition-opacity hover:opacity-85 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500/50" />
+            <span className="inline-flex shrink-0 flex-nowrap items-center gap-x-1.5">
+              <Image
+                src="/pole-star.png"
+                alt=""
+                width={120}
+                height={40}
+                className="h-5 w-auto shrink-0 object-contain md:h-6"
+              />
+              <PoleStarLabsLink className="inline font-bold tracking-normal text-black underline-offset-4 transition-opacity hover:opacity-85 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500/50" />
+            </span>
           </span>
         </p>
 

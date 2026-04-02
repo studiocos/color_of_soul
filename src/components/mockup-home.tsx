@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 
 import { AboutContent } from "@/components/about-content"
@@ -35,14 +35,60 @@ const gallerySectionCardClassName =
 
 const INTRO_DURATION_MS = 4500
 
+/** 스크롤을 내렸다가 메인 상단으로 돌아왔을 때만 인트로 재생 (최초 로드와 동일한 타이밍) */
+const SCROLL_DOWN_THRESHOLD_PX = 120
+const AT_MAIN_TOP_THRESHOLD_PX = 48
+
 /** mockup_ani/reference/App.tsx structure + COS sections */
 export function MockupHome() {
   const [introDone, setIntroDone] = useState(false)
+  const introDoneRef = useRef(introDone)
+  introDoneRef.current = introDone
+
+  const introTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const wasScrolledDownRef = useRef(false)
+
+  const clearIntroTimer = useCallback(() => {
+    if (introTimerRef.current) {
+      window.clearTimeout(introTimerRef.current)
+      introTimerRef.current = null
+    }
+  }, [])
+
+  const scheduleIntroEnd = useCallback(() => {
+    clearIntroTimer()
+    introTimerRef.current = window.setTimeout(() => {
+      setIntroDone(true)
+      introTimerRef.current = null
+    }, INTRO_DURATION_MS)
+  }, [clearIntroTimer])
 
   useEffect(() => {
-    const id = window.setTimeout(() => setIntroDone(true), INTRO_DURATION_MS)
-    return () => window.clearTimeout(id)
-  }, [])
+    scheduleIntroEnd()
+    return () => clearIntroTimer()
+  }, [clearIntroTimer, scheduleIntroEnd])
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY ?? document.documentElement.scrollTop
+      if (y > SCROLL_DOWN_THRESHOLD_PX) {
+        wasScrolledDownRef.current = true
+        return
+      }
+      if (
+        y <= AT_MAIN_TOP_THRESHOLD_PX &&
+        wasScrolledDownRef.current &&
+        introDoneRef.current
+      ) {
+        wasScrolledDownRef.current = false
+        setIntroDone(false)
+        scheduleIntroEnd()
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [scheduleIntroEnd])
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden font-sans text-gray-800 selection:bg-[#00FF88]/30">
