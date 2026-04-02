@@ -12,9 +12,22 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Color of Soul - Find Your Color of Soul",
+  title: "Studio COS | 당신 안의 빛을 마주하는 시간",
   description:
-    "Color of Soul은 보이지 않는 운명의 데이터를 보이는 빛의 언어로 번역합니다. Find your unique wavelength through Mingliology and physics-based spectrum theory.",
+    "퍼스널 컬러와 빛을 통해 진정한 나를 발견하는 스튜디오, COS",
+  openGraph: {
+    title: "Studio COS | 당신 안의 빛을 마주하는 시간",
+    description:
+      "퍼스널 컬러와 빛을 통해 진정한 나를 발견하는 스튜디오, COS",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Studio COS | 당신 안의 빛을 마주하는 시간",
+    description:
+      "퍼스널 컬러와 빛을 통해 진정한 나를 발견하는 스튜디오, COS",
+    images: ["/og-image.png"],
+  },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
