@@ -73,6 +73,12 @@ relative rounded-sm border border-white/35 bg-white/40 px-4 py-10 shadow-2xl sha
 - Pole Star Labs 로고 `next/image`, 링크에 `hover:opacity-85`, `focus-visible:outline` (sky 계열)
 - 협업 문구 중심 정렬, `tracking-widest`로 브랜드 간격
 
+**문서·브랜드 참고 (Pole Star Labs)**
+
+![Pole Star Labs 로고](../../public/polestar.JPG)
+
+- **공식 웹사이트:** [https://www.polestar-labs.ai/](https://www.polestar-labs.ai/)
+
 ## 목업 전용 참고 컴포넌트 (`mockup_ani`)
 
 ### `App.tsx` 중앙 카드
@@ -94,7 +100,7 @@ relative rounded-sm border border-white/35 bg-white/40 px-4 py-10 shadow-2xl sha
 ## 이미지 자산
 
 - 갤러리: `/wood.png`, `/FIRE.png`, … `public/`
-- 푸터: `/pole-star.png`
+- 푸터: `/pole-star.png` (구현 참고) · 문서·브랜드 정본 이미지: `public/polestar.JPG`
 - Contact: `/contact.JPG`
 - `mockup_main`: `/images/aurora-bg.jpg` (오로라 배경 대안)
 

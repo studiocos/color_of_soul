@@ -1,6 +1,6 @@
 # Color of Soul (COS) — 제품 요구사항 문서 (PRD)
 
-**문서 버전:** 1.0  
+**문서 버전:** 1.2  
 **기준 저장소:** `cos` (Next.js App Router)  
 **최종 갱신:** 2026-04-02  
 
@@ -17,6 +17,12 @@
 - **클라이언트:** Color of Soul (Studio COS)
 - **기획·디자인·개발 협업:** [Pole Star Labs](https://www.polestar-labs.ai/)
 - **저작권·라이선스:** 저장소 `LICENSE` 및 루트 `README.md` 의 Pole Star Labs 귀속 조항을 따른다.
+
+**Pole Star Labs 공식 웹사이트:** [https://www.polestar-labs.ai/](https://www.polestar-labs.ai/)
+
+![Pole Star Labs 로고](../../public/polestar.JPG)
+
+*문서용 브랜드 로고 파일: 저장소 `public/polestar.JPG`*
 
 ### 1.3 제품 목표
 
@@ -123,6 +129,8 @@
 | 폰트 | Geist, Geist Mono, Playfair Display (`next/font/google`) |
 | 배포 | Vercel 등 Next 호환 호스팅 |
 
+프로덕션 배포 절차·환경 변수(`NEXT_PUBLIC_SITE_URL` 등)는 **`docs/deployment.md`** 를 참고한다.
+
 상세 구현·토큰·레이어는 `docs/uiux/` 를 참고한다.
 
 ---
@@ -153,6 +161,8 @@
 
 | 버전 | 날짜 | 내용 |
 |------|------|------|
+| 1.2 | 2026-04-02 | Pole Star Labs — 문서에 `public/polestar.JPG` 로고 및 공식 URL [polestar-labs.ai](https://www.polestar-labs.ai/) 명기 |
+| 1.1 | 2026-04-02 | 정식 배포 문서화 — `docs/deployment.md` 추가, 문서 인덱스·README 와 교차 링크 정리 |
 | 1.0 | 2026-04-02 | 초안 — 코드베이스 및 `docs/uiux` 기준 정리 |
 
 ---

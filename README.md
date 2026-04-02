@@ -1,17 +1,26 @@
 # Color of Soul (COS)
 
-Studio COS 브랜드 **Color of Soul** 용 단일 페이지 랜딩입니다. [Next.js](https://nextjs.org) App Router 기반이며, Spline 3D 배경·글래스 카드·인트로 애니메이션으로 메인·소개·서비스·갤러리·예약·연락처를 한 화면에서 제공합니다.
+Studio COS 브랜드 **Color of Soul** 용 **단일 페이지 랜딩** 웹사이트입니다. [Next.js](https://nextjs.org) App Router 기반이며, Spline 3D 배경·글래스 카드·인트로 애니메이션으로 메인·소개·서비스·갤러리·예약·연락처를 한 화면에서 제공합니다.
+
+**버전:** 1.0.0 (정식 배포 기준)  
+
+---
 
 ## 특징
 
 - **인트로·히어로:** “COLOR OF soul” 오프닝 후 메인 카피(영·한); 스크롤 후 메인 상단 복귀 시 인트로 재생
 - **내비게이션:** 데스크톱 좌측 고정 레일(`lg` 이상), 모바일 햄버거 메뉴; 앵커는 `src/constants/section-nav.ts` 에서 단일 관리
 - **배경:** Spline iframe + CSS 오로라·그레인 레이어 (`src/components/spline-background.tsx`, `globals.css`)
+- **SEO·소셜:** `layout.tsx` 에서 메타데이터·Open Graph·Twitter 카드·파비콘 (`public/icon.svg`, `public/og-image.jpg`)
 - **분석:** [Vercel Analytics](https://vercel.com/analytics) (`@vercel/analytics`)
 
 ## Pole Star Labs 협업
 
+![Pole Star Labs 로고](public/polestar.JPG)
+
 **Color of Soul** 스튜디오와 **[Pole Star Labs](https://www.polestar-labs.ai/)** 가 함께 기획·디자인·개발한 산출물입니다. 푸터에 협업 표기가 있으며, Pole Star Labs 브랜드 자산(예: 로고)은 협업 범위 내 사용입니다.
+
+- **공식 웹사이트:** [https://www.polestar-labs.ai/](https://www.polestar-labs.ai/)
 
 ## 기술 스택
 
@@ -89,15 +98,24 @@ src/
 
 내비 라벨 `About` → `#about` (첫 About 블록). 정적 자산은 `public/` 에 두고 `/파일명` 으로 참조합니다.
 
-## 배포
+## 프로덕션 배포
 
-[Vercel](https://vercel.com) 연결 또는 `npm run build` 산출물을 Node 호스팅·Docker 등에 배포할 수 있습니다. [Next.js 배포 문서](https://nextjs.org/docs/app/building-your-application/deploying) 참고.
+정식 배포 시 **빌드·환경 변수·호스팅** 절차는 **[docs/deployment.md](docs/deployment.md)** 를 따릅니다.
+
+요약:
+
+1. `npm run lint` 및 `npm run build` 로 통과 확인
+2. 프로덕션에서 **`NEXT_PUBLIC_SITE_URL`** 설정 권장 (공개 URL 기준, OG·`metadataBase` 용). Vercel 은 `VERCEL_URL` 로 보조 가능
+3. Vercel 등 Next.js 호환 호스팅에 연결
+
+자세한 표·체크리스트는 배포 문서를 참고하세요.
 
 ## 문서
 
 | 문서 | 설명 |
 |------|------|
 | [docs/README.md](docs/README.md) | 문서 인덱스 |
+| [docs/deployment.md](docs/deployment.md) | 프로덕션 배포 가이드 |
 | [docs/uiux/README.md](docs/uiux/README.md) | UI/UX·구현 참고 (스택, 색, 타이포, 배경, 컴포넌트, 애니메이션, 이식) |
 | [docs/plan/prd.md](docs/plan/prd.md) | 제품 요구사항(PRD) |
 
