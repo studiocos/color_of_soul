@@ -45,7 +45,7 @@ export function MockupHome() {
   const introDoneRef = useRef(introDone)
   introDoneRef.current = introDone
 
-  const introTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const introTimerRef = useRef<number | null>(null)
   const wasScrolledDownRef = useRef(false)
 
   const clearIntroTimer = useCallback(() => {
