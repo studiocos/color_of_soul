@@ -14,7 +14,7 @@ Studio COS 브랜드 **Color of Soul** 용 **단일 페이지 랜딩** 웹사이
 - **SEO·소셜:** `layout.tsx` 에서 메타데이터·Open Graph·Twitter 카드·파비콘 (`public/icon.svg`, `public/og-image.jpg`)
 - **분석:** [Vercel Analytics](https://vercel.com/analytics) (`@vercel/analytics`)
 
-## Pole Star Labs 협업
+## Pole Star Labs 협업.
 
 ![Pole Star Labs 로고](public/polestar.JPG)
 
