@@ -7,6 +7,7 @@
 - [ ] Next.js + React + TypeScript
 - [ ] Tailwind CSS v4 + `@tailwindcss/postcss` + PostCSS
 - [ ] `tw-animate-css` import (`globals.css`)
+- [ ] `framer-motion` (히어로·내비·모바일 메뉴 모션)
 - [ ] `lucide-react` (아이콘 필요 시)
 - [ ] `next/font`: Geist, Geist Mono, Playfair Display — 또는 브랜드에 맞는 대체 폰트
 
@@ -24,6 +25,7 @@
 
 - [ ] 루트 `body`에 폰트 CSS 변수 클래스 부여
 - [ ] `selection:bg-[#00FF88]/30` (또는 브랜드 선택색)
+- [ ] `:root` 에 `--nav-rail-width` 및 본문 `lg:pl-[var(--nav-rail-width)]` (고정 좌측 내비 사용 시)
 
 ## 4. 배경 (택일 또는 병행)
 
@@ -41,7 +43,9 @@
 ## 5. UI 패턴
 
 - [ ] 섹션 카드: `border-white/35 bg-white/40 backdrop-blur-md shadow-2xl shadow-purple-500/5`
-- [ ] 좌측 내비: `fixed`, `group` + `hover:translate-x-2`
+- [ ] 히어로 인트로/메인 씬: `HeroTransition` 패턴 또는 동등한 모션
+- [ ] 좌측 내비: `fixed`, 인트로 후 표시, `group` + `hover:translate-x-2`
+- [ ] 모바일 내비: 오버레이·포커스 트랩·Escape (COS: `SectionNavMobile`)
 - [ ] 섹션 제목: `font-serif italic` + 반응형 크기
 - [ ] 푸터 글래스: `bg-white/[0.12]`, `backdrop-blur-md`
 
@@ -65,7 +69,11 @@
 |----------|------|
 | `src/app/globals.css` | 글로벌 스타일 + 커스텀 클래스 |
 | `src/app/layout.tsx` | 폰트·메타·Analytics |
+| `src/constants/section-nav.ts` | 앵커 내비 항목 |
 | `src/components/spline-background.tsx` | 3D 배경 |
+| `src/components/hero-transition.tsx` | 인트로·메인 히어로 모션 |
+| `src/components/section-nav-mobile.tsx` | 모바일 섹션 메뉴 |
+| `src/components/collaboration-footer.tsx` | 협업 푸터 |
 | `src/components/mockup-home.tsx` | 페이지 셸 레퍼런스 |
 | `src/components/*-content.tsx` | 섹션별 타이포·레이아웃 샘플 |
 | `mockup_ani/reference/App.tsx` | 카드·그리드 호버 데모 |

@@ -1,5 +1,13 @@
 # 애니메이션·인터랙션
 
+## Framer Motion (프로덕션)
+
+| 위치 | 동작 |
+|------|------|
+| `HeroTransition` | `AnimatePresence` 로 인트로 씬 ↔ 메인 카피 씬 전환; 인트로 `exit` 에서 블러·스케일 아웃, 메인 라인은 `staggerChildren` |
+| 좌측 내비 | `motion.nav` + `motion.a`, 컨테이너/아이템 `variants` 로 시차 등장 |
+| `SectionNavMobile` | 패널·백드롭 `AnimatePresence`, 메뉴 열림 시 `body` 스크롤 잠금 |
+
 ## CSS 트랜지션 (Tailwind)
 
 | 위치 | 클래스 | 효과 |
@@ -17,6 +25,11 @@
 - 컨테이너 `perspective-1000` — 입체감 보조
 
 프로덕션 `MockupHome`은 중앙 카드가 없지만, **같은 클래스**를 카드형 컴포넌트에 적용 가능합니다.
+
+## 인트로 타이밍·스크롤 (`mockup-home`)
+
+- 인트로 지속 시간은 상수(예: 4500ms)로 제어 후 `introDone` 전환
+- 스크롤 리스너: 일정 거리 이상 내려갔다가 메인 상단 근처로 복귀하면 `introDone` 을 리셋하고 인트로 타이머 재스케줄
 
 ## JavaScript 애니메이션
 
@@ -47,7 +60,7 @@
 
 - Spline iframe: 의미 있는 `title`
 - 장식: `aria-hidden`
-- 내비: `aria-label="Section"`
+- 내비: `aria-label="Section"`; 모바일 메뉴 버튼: `aria-expanded`, `aria-controls`, 패널 제목 `useId` 연계
 - 푸터: `role="contentinfo"`
 - Contact 섹션: `aria-labelledby` + 제목 `id`
 

@@ -14,9 +14,12 @@
 | [06-animation-and-interaction.md](./06-animation-and-interaction.md) | 트랜지션, `requestAnimationFrame`, 포커스·접근성 |
 | [07-porting-checklist.md](./07-porting-checklist.md) | 신규 프로젝트 이식 체크리스트 |
 
+제품 범위·우선순위는 [../plan/prd.md](../plan/prd.md) 를 참고하세요.
+
 ## 코드베이스 기준 경로
 
 - **프로덕션 UI**: `src/` (Next.js App Router)
+- **앵커 내비 단일 소스**: `src/constants/section-nav.ts`
 - **Vite 목업 (참고)**: `mockup_ani/reference/`
 - **Spline 없는 오로라 대안**: `mockup_main/components/aurora-background.tsx`
 

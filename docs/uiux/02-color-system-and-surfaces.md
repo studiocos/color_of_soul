@@ -34,6 +34,13 @@
 | 서비스 스텝 배경 | `from-[#FDE2F3]/40 via-violet-100/30 to-[#B2EBF2]/45` |
 | Book/Contact 세부 | `#333333`, `#444444`, `#555555` 등 계층 구분 |
 
+## 히어로 타이포 유틸 (`globals.css`)
+
+| 클래스 | 역할 |
+|--------|------|
+| `.text-intro-color-of-soul` | 인트로 타이틀 “COLOR OF soul” — 다색 선형 그라데이션을 `background-clip: text` 로 적용 |
+| `.text-hero-main-en` / `.text-hero-main-ko` | 인트로 종료 후 메인 카피(영문/한글) — 낮은 대비의 회색 톤, Geist |
+
 ## 메시 배경 `.bg-color-of-soul`
 
 `globals.css`에 정의. **고정 다중 방사형 그라데이션**으로 “오로라 메시”를 만듭니다.

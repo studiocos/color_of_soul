@@ -8,6 +8,12 @@
 | **React** | 19.x | UI 컴포넌트 |
 | **TypeScript** | 5.x | 타입 안정성 |
 
+## 모션
+
+| 항목 | 설명 |
+|------|------|
+| **framer-motion** | 히어로 인트로/메인 씬 전환, 좌측 내비·모바일 메뉴의 등장·오버레이 애니메이션 (`AnimatePresence`, `motion.*`) |
+
 ## 스타일링
 
 | 항목 | 설명 |
@@ -45,6 +51,7 @@
 ```json
 {
   "dependencies": {
+    "framer-motion": "^12.x",
     "lucide-react": "^1.x",
     "next": "^16.x",
     "react": "^19.x",

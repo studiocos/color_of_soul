@@ -14,6 +14,8 @@
 
 - `--font-sans`, `--font-mono`, `--font-serif`가 위 변수와 연결됩니다.
 
+`:root` 에 **고정 내비 레일 폭** `--nav-rail-width: 12.5rem` 이 있으며, 인트로가 끝난 뒤 본문 래퍼에 `lg:pl-[var(--nav-rail-width)]` 를 주어 가운데 컬럼이 좌측 내비에 가리지 않도록 합니다.
+
 ## 루트 스케일
 
 `globals.css`의 `html`:
@@ -46,7 +48,7 @@
 
 1. **배경**: `fixed inset-0 z-0` — Spline + 오버레이
 2. **콘텐츠**: `relative z-10` — 스크롤 가능한 본문
-3. **내비**: `fixed z-50` — 좌측 세로 (데스크톱만 `lg:flex`)
+3. **내비**: 인트로 종료 후에만 표시 — 좌측 `fixed z-50` 세로 레일(`lg:flex`), 모바일은 우상단 버튼 + 오버레이 패널(`SectionNavMobile`, `z-[60]` 대역)
 
 ### 포인터 이벤트
 

@@ -8,8 +8,13 @@
 
 - 최상위: `relative min-h-screen`, `font-sans text-gray-800`, `selection:bg-[#00FF88]/30`
 - `<SplineBackground />` 고정 풀스크린
-- 좌측 **fixed 내비** (`md` 이상): `font-mono text-gray-500`, `hover:translate-x-2 hover:text-gray-800`
-- 본문: `max-w-4xl` 카드들의 세로 스택 + 하단 `CollaborationFooter`
+- **인트로 상태** (`introDone`): 최초 약 4.5초 동안 `HeroTransition` 만 풀뷰포트로 표시; 완료 후 좌측 내비·모바일 메뉴·본문 카드 스택이 활성화됨. 사용자가 아래로 스크롤했다가 메인 상단으로 돌아오면 인트로를 다시 재생
+- 인트로 종료 후: 좌측 **fixed 내비** (`lg:flex`): `sectionNavItems` 기반, Framer Motion 스태거, `font-mono text-gray-500`, `hover:translate-x-2 hover:text-gray-800`
+- 동일 시점에 **모바일** `SectionNavMobile`: 햄버거 → 오버레이·앵커 스크롤(`scrollIntoView`)
+- 첫 카드: `HeroContent` + `AboutContent` (한 카드 안에 두 섹션) — `#about` 은 `HeroContent`, `#about-story` 는 `AboutContent`
+- 이후 카드: Service → Gallery(`id="gallery"`) → Book → Contact + 하단 `CollaborationFooter`
+
+**내비 데이터**: `src/constants/section-nav.ts` (`Main`, `About`, … `Contact` 와 `href` 매핑)
 
 ### 섹션 카드 공통 클래스
 
@@ -29,6 +34,14 @@ relative rounded-sm border border-white/35 bg-white/40 px-4 py-10 shadow-2xl sha
 | 푸터 카드 | `bg-white/[0.12]`, `border-white/25`, 더 얇은 글래스 |
 
 ## 섹션별 요약
+
+### `HeroTransition`
+
+**파일**: `src/components/hero-transition.tsx`
+
+- 씬 A: “COLOR OF soul” 인트로 — 블러 인·아웃, `.text-intro-color-of-soul` 그라데이션 타이포
+- 씬 B: 메인 카피(영·한) — `mainLineVariants` 스태거, `.text-hero-main-en` / `.text-hero-main-ko`
+- 내비용 `heroNavContainerVariants` / `heroNavItemVariants` 는 `mockup-home` 의 `motion.nav` / `motion.a` 와 함께 사용
 
 ### `HeroContent` / `AboutContent`
 
@@ -54,6 +67,8 @@ relative rounded-sm border border-white/35 bg-white/40 px-4 py-10 shadow-2xl sha
 - Contact: 지도 이미지 `rounded-sm border border-white/40 bg-white/30 shadow-inner shadow-purple-500/5`
 
 ### `CollaborationFooter`
+
+**파일**: `src/components/collaboration-footer.tsx`
 
 - Pole Star Labs 로고 `next/image`, 링크에 `hover:opacity-85`, `focus-visible:outline` (sky 계열)
 - 협업 문구 중심 정렬, `tracking-widest`로 브랜드 간격

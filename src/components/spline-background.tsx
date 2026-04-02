@@ -45,11 +45,6 @@ export function SplineBackground() {
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-cyan-50/55 via-white/15 to-rose-50/50" />
 
       <div
-        className="pointer-events-none absolute bottom-0 right-0 z-[2] h-[min(140px,22vh)] w-[min(320px,45vw)] bg-gradient-to-tl from-sky-200/35 via-fuchsia-100/25 to-transparent"
-        aria-hidden
-      />
-
-      <div
         className="pointer-events-none absolute inset-0 z-[2] bg-color-of-soul-grain"
         aria-hidden
       />
