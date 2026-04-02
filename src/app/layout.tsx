@@ -11,7 +11,12 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Studio COS | 당신 안의 빛을 마주하는 시간",
   description:
     "퍼스널 컬러와 빛을 통해 진정한 나를 발견하는 스튜디오, COS",
@@ -19,14 +24,14 @@ export const metadata: Metadata = {
     title: "Studio COS | 당신 안의 빛을 마주하는 시간",
     description:
       "퍼스널 컬러와 빛을 통해 진정한 나를 발견하는 스튜디오, COS",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Studio COS | 당신 안의 빛을 마주하는 시간",
     description:
       "퍼스널 컬러와 빛을 통해 진정한 나를 발견하는 스튜디오, COS",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
