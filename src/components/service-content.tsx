@@ -31,13 +31,8 @@ const stepStaggerClass = [
   "max-sm:pl-0 sm:pl-[8%] md:pl-[14%] lg:pl-[18%]",
 ] as const
 
-/** 02→03→04로 흰색 박스 max-width를 단계적으로 줄여 오른쪽이 짧아지는 느낌 (md+: xl → lg → md) */
-const cardMaxWidthClass = [
-  "max-w-md sm:max-w-lg md:max-w-xl",
-  "max-w-md sm:max-w-lg md:max-w-xl",
-  "max-w-md sm:max-w-lg md:max-w-lg",
-  "max-w-sm sm:max-w-md md:max-w-md",
-] as const
+/** 흰색 박스 가로는 스텝마다 동일. 계단 느낌은 stepStaggerClass(pl)만으로 처리 */
+const cardWidthClass = "max-w-md sm:max-w-lg md:max-w-xl"
 
 export function ServiceContent() {
   return (
@@ -62,7 +57,7 @@ export function ServiceContent() {
                   {num}. {step.title}
                 </h3>
                 <div
-                  className={`min-w-0 w-full bg-[rgba(255,255,255,0.75)] px-4 py-6 sm:px-7 sm:py-7 md:px-8 md:py-8 ${cardMaxWidthClass[index]}`}
+                  className={`min-w-0 w-full bg-[rgba(255,255,255,0.75)] px-4 py-6 sm:px-7 sm:py-7 md:px-8 md:py-8 ${cardWidthClass}`}
                 >
                   <div className="flex min-w-0 flex-col gap-2 break-keep text-left font-sans text-sm font-medium leading-[1.55] text-card-foreground md:text-base md:leading-[1.6]">
                     {step.lines.map((line) => (

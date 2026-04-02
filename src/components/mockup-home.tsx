@@ -35,6 +35,8 @@ const AT_MAIN_TOP_THRESHOLD_PX = 48
 /** mockup_ani/reference/App.tsx structure + COS sections */
 export function MockupHome() {
   const [introDone, setIntroDone] = useState(false)
+  /** 인트로 씬 exit 완료 후에만 레일 패딩·내비 — 퇴장 중 패딩으로 타이포가 옆으로 점프하지 않게 함 */
+  const [introLayoutReady, setIntroLayoutReady] = useState(false)
   const introDoneRef = useRef(introDone)
   introDoneRef.current = introDone
 
@@ -62,6 +64,10 @@ export function MockupHome() {
   }, [clearIntroTimer, scheduleIntroEnd])
 
   useEffect(() => {
+    if (!introDone) setIntroLayoutReady(false)
+  }, [introDone])
+
+  useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY ?? document.documentElement.scrollTop
       if (y > SCROLL_DOWN_THRESHOLD_PX) {
@@ -83,11 +89,13 @@ export function MockupHome() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [scheduleIntroEnd])
 
+  const showPostIntroLayout = introDone && introLayoutReady
+
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden font-sans text-gray-800 selection:bg-[#00FF88]/30">
       <SplineBackground />
 
-      {introDone ? (
+      {showPostIntroLayout ? (
         <motion.nav
           aria-label="Section"
           className="pointer-events-auto fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-6 text-sm font-mono text-gray-500 lg:flex lg:left-12"
@@ -112,11 +120,15 @@ export function MockupHome() {
         </motion.nav>
       ) : null}
 
-      {introDone ? <SectionNavMobile items={sectionNavItems} /> : null}
+      {showPostIntroLayout ? (
+        <SectionNavMobile items={sectionNavItems} />
+      ) : null}
 
       <div
         className={
-          introDone ? "lg:pl-[var(--nav-rail-width)]" : undefined
+          showPostIntroLayout
+            ? "lg:pl-[var(--nav-rail-width)]"
+            : undefined
         }
       >
         <div className="pointer-events-none relative z-10 flex min-h-screen flex-col p-6 md:p-8 lg:p-12">
@@ -124,7 +136,10 @@ export function MockupHome() {
             id="main"
             className="pointer-events-auto relative flex w-full min-h-[min(100dvh,100vh)] flex-1 flex-col items-center justify-center"
           >
-            <HeroTransition introDone={introDone} />
+            <HeroTransition
+              introDone={introDone}
+              onIntroSceneExitComplete={() => setIntroLayoutReady(true)}
+            />
           </main>
         </div>
 
