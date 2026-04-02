@@ -12,8 +12,8 @@
 ### 레이아웃·크롭
 
 - iframe 컨테이너: `absolute inset-0 overflow-hidden`
-- iframe: `left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2`
-- 크기: `h-[112vmax] w-[112vmax]` — 뷰포트보다 크게 잡아 **레터박스/여백**을 줄임
+- iframe: `left-1/2 top-1/2` + `style={{ transform: 'translate(-50%, calc(-50% - 4.5vh))' }}` — 중앙 정렬 후 **살짝 위로** (`vh` 값으로 조절). Tailwind `-translate-y-[calc(...)]`는 부호·`calc` 공백 때문에 깨지기 쉬워 **인라인 `transform`** 사용
+- 크기: `h-[128vmax] w-[128vmax]` — 뷰포트보다 크게 잡아 레터박스/여백을 줄임 (빈 시야는 Spline 씬 쪽 조정)
 
 ### 색 보정 (Tailwind)
 
@@ -39,6 +39,32 @@
 
 - `title="3D Dunes Background"` (또는 씬에 맞는 설명)
 - 장식 레이어는 `aria-hidden` 가능
+
+### Spline 에디터: 검은 영역(빈 시야) 방지 — UI 코드 변경 없음
+
+임베드·CSS·오버레이는 그대로 두고, **Spline 씬만** 조정합니다. 빈 시야에 WebGL **클리어 색(검정에 가까운 색)**이 보이는 문제를 줄입니다.
+
+**이 프로젝트(Public URL + iframe)에서는** Next.js 코드로 **Spline 안의 배경색·지오메트리·카메라**를 바꿀 수 없습니다. 서버에 올라간 씬이 그대로 그려집니다. 앱 쪽에서 가능한 것은 iframe 크기·`filter`·부모 배경·오로라 레이어 등 **주변 합성**뿐입니다. 씬 자체 수정은 **Spline 에디터 → Publish**가 필요합니다. (Spline을 **Code export** / **`@splinetool/react-spline`** 등으로 붙이면 런타임 제어 범위가 달라질 수 있으나, 현재 구조는 iframe URL 임베드입니다.)
+
+1. **Play Settings — BG Color (필수)**  
+   - 툴바 **Export** → **Web** → **Public URL** 경로에서 **Play Settings**를 연다.  
+   - [Play Settings 문서](https://docs.spline.design/exporting-your-scene/play-settings) 기준 **BG Color**를 **밝은 단색**으로 둔다.  
+   - 권장: **`#fffefb`** — `src/app/globals.css`의 `html { background-color }`와 동일해 iframe 안 빈 영역이 페이지 베이스와 자연스럽게 맞는다.  
+   - **배경을 투명으로 숨기는 옵션**을 쓰는 경우, 브라우저·합성에 따라 여전히 어둡게 보일 수 있다. 검은 끊김이 있으면 **불투명 배경**으로 위 색을 지정하는 편이 안전하다.
+
+2. **지오메트리 / 환경**  
+   - 카메라 움직임으로 **코너에 메시가 비는** 경우: 오브젝트 **뒤쪽**에 **큰 배경 평면** 또는 **스카이 형태**를 두어 시야를 채운다.  
+   - 또는 기존 지형·메시 **스케일**만 키워(필요 시) 모든 프레임에서 화면 가장자리가 가려지게 한다.
+
+3. **카메라**  
+   - **Orbit / Pan limits** 등으로 카메라가 지오메트리 **바깥 빈 공간**을 크게 보지 않도록 제한한다.  
+   - 자동 회전·스크롤 연동이 있으면 **한 바퀴 전체**에서 모서리가 비지 않는지 확인한다.
+
+4. **Fog (선택)**  
+   - Fog를 쓰면 **Fog 색**을 BG와 같게(`#fffefb` 계열) 맞춘다 — [Fog 문서](https://docs.spline.design/doc/working-with-fog/doc972mJVC2W).
+
+5. **배포 후 확인**  
+   - 동일 Public URL로 **Publish**한 뒤, 브라우저 **캐시** 때문에 이전이 보일 수 있으니 시크릿 창 또는 강력 새로고침으로 검증한다.
 
 ---
 

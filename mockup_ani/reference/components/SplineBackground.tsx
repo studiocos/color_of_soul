@@ -46,10 +46,11 @@ const SplineBackground: React.FC = () => {
           <iframe
             src={SPLINE_SRC}
             frameBorder="0"
-            className={`absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 border-0
-              h-[112vmax] w-[112vmax] min-h-full min-w-full transition-opacity duration-1000
+            className={`absolute left-1/2 top-1/2 max-w-none border-0
+              h-[128vmax] w-[128vmax] min-h-full min-w-full transition-opacity duration-1000
               brightness-[1.24] saturate-[1.38] contrast-[1.06]
               ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            style={{ transform: 'translate(-50%, calc(-50% - 4.5vh))' }}
             onLoad={() => setIsLoaded(true)}
             title="3D Dunes Background"
           />

@@ -193,12 +193,19 @@
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  background: radial-gradient(
-    circle at 50% 45%,
-    rgba(255, 255, 255, 0.28) 0%,
-    rgba(255, 250, 245, 0.08) 45%,
-    transparent 70%
-  );
+  /* Spline 캔버스 내부 빈 시야(검정)는 iframe 밖 배경으로 안 비침 — 상단·좌측에만 밝은 하이라이트를 얹어 체감만 완화 */
+  background:
+    radial-gradient(
+      ellipse 85% 55% at 6% 8%,
+      rgba(255, 252, 247, 0.42) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 250, 245, 0.08) 45%,
+      transparent 70%
+    );
   mix-blend-mode: screen;
   opacity: 0.45;
 }

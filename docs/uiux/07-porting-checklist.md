@@ -31,7 +31,7 @@
 
 ### Spline 3D
 
-- [ ] `SplineBackground` 컴포넌트: iframe URL, `112vmax`, 필터, `visibilitychange`, 로딩 페이드
+- [ ] `SplineBackground` 컴포넌트: iframe URL, `128vmax`, 필터, `visibilitychange`, 로딩 페이드
 - [ ] 오버레이 div 스택 (비네트, 코너, 그레인)
 - [ ] `globals.css` 오로라 클래스
 
