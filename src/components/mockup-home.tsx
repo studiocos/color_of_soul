@@ -128,7 +128,7 @@ export function MockupHome() {
           </main>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-4xl space-y-8 px-4 pb-12 pt-4 md:px-8">
+        <div className="relative z-10 mx-auto max-w-5xl space-y-8 px-4 pb-12 pt-4 md:px-8">
           <div className={sectionCardClassName}>
             <HeroContent />
             <AboutContent />

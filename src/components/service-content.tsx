@@ -23,30 +23,53 @@ const steps = [
   },
 ] as const
 
+/** 3.png: 아래로 갈수록 오른쪽으로 인덴트 — margin 대신 padding으로 처리해 100% 너비 + margin 오버플로 방지 */
+const stepStaggerClass = [
+  "max-sm:pl-0 sm:pl-0",
+  "max-sm:pl-0 sm:pl-[6%] md:pl-[9%] lg:pl-[11%]",
+  "max-sm:pl-0 sm:pl-[12%] md:pl-[18%] lg:pl-[22%]",
+  "max-sm:pl-0 sm:pl-[18%] md:pl-[27%] lg:pl-[33%]",
+] as const
+
+/** 02→03→04로 흰색 박스 max-width를 단계적으로 줄여 오른쪽이 짧아지는 느낌 (md+: xl → lg → md) */
+const cardMaxWidthClass = [
+  "max-w-md sm:max-w-lg md:max-w-xl",
+  "max-w-md sm:max-w-lg md:max-w-xl",
+  "max-w-md sm:max-w-lg md:max-w-lg",
+  "max-w-sm sm:max-w-md md:max-w-md",
+] as const
+
 export function ServiceContent() {
   return (
     <section
       id="service"
-      className="scroll-mt-8 relative min-h-screen px-8 pt-16 pb-20 sm:px-12 md:px-16 lg:px-20"
+      className="scroll-mt-8 relative min-h-screen overflow-x-hidden px-4 pt-16 pb-20 sm:px-6 md:px-8 lg:px-10"
     >
       <h2 className="mb-10 font-serif text-3xl italic text-card-foreground md:text-4xl lg:text-5xl">
         &ldquo;Service&rdquo;
       </h2>
 
-      <div className="relative mx-auto max-w-3xl rounded-sm bg-gradient-to-br from-[#FDE2F3]/40 via-violet-100/30 to-[#B2EBF2]/45 px-5 py-10 sm:px-8 sm:py-12 md:px-10 md:py-14">
-        <div className="flex flex-col items-center gap-14 md:gap-16 lg:gap-20">
+      <div className="relative min-w-0 w-full rounded-sm bg-gradient-to-br from-[#fce4ec]/90 via-[#e1bee7]/65 to-[#b3e5fc]/90 px-4 py-10 sm:px-6 sm:py-12 md:px-10 md:py-14 lg:px-12">
+        <div className="flex min-w-0 flex-col items-stretch gap-8 md:gap-10 lg:gap-12">
           {steps.map((step, index) => {
             const num = String(index + 1).padStart(2, "0")
+            const singleLineTitle = step.title === "SELECTION & RETOUCHING"
             return (
               <div
                 key={step.title}
-                className="flex w-full flex-col items-center gap-7 md:gap-9"
+                className={`flex min-w-0 w-full max-w-full flex-col items-start gap-3 md:gap-4 ${stepStaggerClass[index]}`}
               >
-                <h3 className="text-center font-sans text-2xl font-extralight uppercase tracking-[0.22em] text-card-foreground sm:text-3xl md:text-[2.125rem] md:leading-tight lg:text-4xl">
+                <h3
+                  className={`w-full min-w-0 max-w-full text-left font-sans text-lg font-extralight uppercase leading-snug tracking-[0.12em] text-card-foreground sm:tracking-[0.16em] md:text-xl md:tracking-[0.18em] lg:text-2xl lg:tracking-[0.2em] ${
+                    singleLineTitle ? "whitespace-nowrap" : "break-words"
+                  }`}
+                >
                   {num}. {step.title}
                 </h3>
-                <div className="w-full max-w-md rounded-sm border border-white/55 bg-white/70 px-6 py-7 text-center shadow-sm backdrop-blur-sm sm:max-w-lg sm:px-8 sm:py-8 md:max-w-xl">
-                  <div className="flex flex-col gap-4 font-sans text-sm font-medium leading-[1.85] text-card-foreground md:text-base md:leading-[1.9]">
+                <div
+                  className={`min-w-0 w-full bg-[rgba(255,255,255,0.75)] px-6 py-7 sm:px-8 sm:py-8 ${cardMaxWidthClass[index]}`}
+                >
+                  <div className="flex min-w-0 flex-col gap-2 break-words text-left font-sans text-sm font-medium leading-[1.55] text-card-foreground md:text-base md:leading-[1.6]">
                     {step.lines.map((line) => (
                       <p key={line} suppressHydrationWarning>
                         {line}
