@@ -18,9 +18,9 @@ Studio COS 브랜드 **Color of Soul** 용 **단일 페이지 랜딩** 웹사이
 
 ![Pole Star Labs 로고](public/polestar.JPG)
 
-**Color of Soul** 스튜디오와 **[Pole Star Labs](https://www.polestar-labs.ai/)** 가 함께 기획·디자인·개발한 산출물입니다. 푸터에 협업 표기가 있으며, Pole Star Labs 브랜드 자산(예: 로고)은 협업 범위 내 사용입니다.
+**Color of Soul** 스튜디오와 **[Pole Star Labs]** 가 함께 기획·디자인·개발한 산출물입니다. 푸터에 협업 표기가 있으며, Pole Star Labs 브랜드 자산(예: 로고)은 협업 범위 내 사용입니다.
 
-- **공식 웹사이트:** [https://www.polestar-labs.ai/](https://www.polestar-labs.ai/)
+- **공식 웹사이트:** 
 
 ## 기술 스택
 
